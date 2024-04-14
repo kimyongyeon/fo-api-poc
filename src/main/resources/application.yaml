@@ -1,0 +1,22 @@
+service.name: fo-order-api
+logging:
+  level:
+    root: debug
+
+spring:
+  h2:
+    console:
+      enabled: true  # H2 콘솔 활성화
+  datasource:
+    master:
+      username: sa
+      password:
+      driver-class-name: org.h2.Driver
+      jdbc-url: jdbc:h2:mem:masterdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    slave:
+      username: sa
+      password:
+      driver-class-name: org.h2.Driver
+      jdbc-url: jdbc:h2:mem:slavedb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+  config:
+    import: classpath:/common-config.yaml
