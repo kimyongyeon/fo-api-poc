@@ -4,11 +4,12 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 
-import java.util.List;
-
 @Data
 @AllArgsConstructor
 @Builder
-public class OrderListResponseDto {
-    List<OrderResponseDto> orderList;
+public class OrderResDto {
+    private int id;
+    private String message;
+    private String name;
+    private String email;
 }

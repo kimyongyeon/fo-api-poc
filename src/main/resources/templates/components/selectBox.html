@@ -1,0 +1,4 @@
+<!-- src/main/resources/templates/components/selectBox.html -->
+<select th:fragment="selectBox(id, name, items, selectedValue)" th:id="${id}" th:name="${name}">
+    <option th:each="item : ${items}" th:value="${item.value}" th:text="${item.label}" th:selected="${item.value == selectedValue}"></option>
+</select>

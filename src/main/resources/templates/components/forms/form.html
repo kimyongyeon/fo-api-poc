@@ -1,0 +1,5 @@
+<!-- components/form/form.html -->
+<form th:fragment="form(action, method, formData)" th:action="${action}" th:method="${method}" th:object="${formData}">
+    <div th:replace="components/forms/input :: formGroup(label, field)"></div>
+    <button th:replace="components/buttons/button :: button(label, type)" th:attr="type=${type}">Submit</button>
+</form>

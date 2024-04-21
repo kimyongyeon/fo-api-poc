@@ -1,0 +1,5 @@
+<!-- components/forms/input/formGroup.html -->
+<div th:fragment="formGroup(label, field)">
+    <label th:for="${field}" th:text="${label}"></label>
+    <input type="text" th:name="${field}" th:value="${field}"/>
+</div>

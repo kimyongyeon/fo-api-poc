@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Select Component</title>
+</head>
+<body>
+<h1>Select Page Sample </h1>
+<div th:replace="components/selectBox :: selectBox('mySelect', 'mySelect', ${options}, ${selectedValue})"></div>
+
+<h1>Button Example</h1>
+<div th:replace="components/buttons/button :: button('Click Me', 'button')"></div>
+
+<h1>Form Example</h1>
+
+<h1 th:text="${formData['name']}">name</h1>
+<h1 th:text="${formData['email']}">email</h1>
+
+<!-- components/form/form.html -->
+<form th:fragment="form(action, method)" th:action="${action}" th:method="${method}">
+    <!-- 실제 필드값을 동적으로 전달하기 위해 수정합니다 -->
+    <div th:replace="components/forms/input :: formGroup('Email', ${formData.email})"></div>
+    <div th:replace="components/forms/input :: formGroup('Name', ${formData.name})"></div>
+    <button th:replace="components/buttons/button :: button('완료', 'submit')"></button>
+</form>
+
+<script th:inline="javascript">
+    document.addEventListener('DOMContentLoaded', function() {
+        var form = document.querySelector('form');
+        if (form) {
+            form.addEventListener('click', function(event) {
+                if (event.target.id === 'completeBtn') {
+                    alert('입력완료');
+                }
+            });
+        }
+    });
+</script>
+</body>
+</html>
