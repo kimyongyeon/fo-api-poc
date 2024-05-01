@@ -1,0 +1,88 @@
+masking:
+  fields:
+    - email
+    - phone
+    - password
+
+service.name: fo-order-api
+logging:
+  level:
+    root: info
+
+spring:
+  cloud:
+    openfeign:
+      client:
+        default-config:
+            connectTimeout: 5000
+            readTimeout: 5000
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
+    encoding: UTF-8
+    mode: HTML
+    cache: false
+  jta:
+    atomikos:
+      enable: true
+    datasource:
+      db1:
+        unique-resource-name: ds1
+        xa-data-source-class-name: org.h2.jdbcx.JdbcDataSource
+        xa-properties:
+          url: jdbc:h2:mem:testdb1
+          user: sa
+          password:
+      db2:
+        unique-resource-name: ds2
+        xa-data-source-class-name: org.h2.jdbcx.JdbcDataSource
+        xa-properties:
+          url: jdbc:h2:mem:testdb2
+          user: sa
+          password:
+      db3:
+        unique-resource-name: ds3
+        xa-data-source-class-name: org.h2.jdbcx.JdbcDataSource
+        xa-properties:
+          url: jdbc:h2:mem:testdb3
+          user: sa
+          password:
+      db4:
+        unique-resource-name: ds4
+        xa-data-source-class-name: org.h2.jdbcx.JdbcDataSource
+        xa-properties:
+          url: jdbc:h2:mem:testdb4
+          user: sa
+          password:
+  h2:
+    console:
+      enabled: true  # H2 콘솔 활성화
+#  datasource:
+#    master:
+#      username: sa
+#      password:
+#      driver-class-name: org.h2.Driver
+#      jdbc-url: jdbc:h2:mem:masterdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+#    slave:
+#      username: sa
+#      password:
+#      driver-class-name: org.h2.Driver
+#      jdbc-url: jdbc:h2:mem:slavedb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+#  config:
+#    import: classpath:/common-config.yaml
+
+management:
+  endpoints:
+    web:
+      base-path: /p
+      path-mapping:
+        health: status
+    health:
+      show-details: always
+      db:
+        enabled: false # 기본 DB 헬스 체크 비활성화
+      redis:
+        enabled: false # 기본 Redis 헬스 체크 비활성화
+server:
+  servlet:
+    context-path: /api

@@ -1,7 +1,7 @@
 package inm.od.biz.mapper.master;
 
 //import com.kyy.cu.common.annotation.MasterMapper;
-import inm.od.biz.vo.CustomerVo;
+import inm.od.biz.mapper.vo.CustomerVo;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
