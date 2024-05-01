@@ -85,7 +85,10 @@ public class DataSourceConfig {
     }
     @Bean
     public PlatformTransactionManager transactionManager1(@Qualifier("dataSource1") DataSource dataSource1) {
-        return new DataSourceTransactionManager(dataSource1);
+        // https://devkuka.tistory.com/272
+        DataSourceTransactionManager dataSourceTransactionManager = new DataSourceTransactionManager(dataSource1);
+        dataSourceTransactionManager.setGlobalRollbackOnParticipationFailure(false);
+        return dataSourceTransactionManager;
     }
     @Bean
     public PlatformTransactionManager transactionManager2(@Qualifier("dataSource2") DataSource dataSource2) {

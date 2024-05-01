@@ -66,7 +66,8 @@ public class TranChildExceptionService {
             CustomerVo customerVo4 = customerService4.selectErrorCustomer4(1);
             System.out.println("db4 커밋전 :: " + customerVo4);
 
-            throw new IllegalArgumentException("부모 에러");
+            if(true)
+                throw new IllegalArgumentException("부모 에러");
 
 
         } catch (Exception e) {
