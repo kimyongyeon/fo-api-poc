@@ -1,5 +1,7 @@
 package inm.od.common.sys.config;
 
+import com.zaxxer.hikari.HikariConfig;
+import com.zaxxer.hikari.HikariDataSource;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.SqlSessionTemplate;
@@ -21,6 +23,7 @@ import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import javax.sql.DataSource;
+import java.sql.SQLException;
 
 @Configuration
 @EnableTransactionManagement
@@ -33,44 +36,75 @@ import javax.sql.DataSource;
 public class DataSourceConfig {
 
     @Bean
-    @Lazy
     @ConfigurationProperties(prefix = "spring.datasource.db1")
-    public DataSource dataSource1() {
-        DriverManagerDataSource dataSource = new DriverManagerDataSource();
-        dataSource.setUrl("jdbc:h2:tcp:localhost/~/testdb1");
-        dataSource.setUsername("sa");
-        dataSource.setDriverClassName("org.h2.Driver");
-        return new LazyConnectionDataSourceProxy(dataSource);
+    public DataSource dataSource1() throws SQLException {
+        HikariConfig hikariConfig = new HikariConfig();
+        hikariConfig.setDriverClassName("org.postgresql.Driver");
+        hikariConfig.setJdbcUrl("jdbc:postgresql://192.168.0.2:5432/postgres?currentSchema=inm1");
+        hikariConfig.setUsername("postgres");
+        hikariConfig.setPassword("1234");
+
+        hikariConfig.setMaximumPoolSize(10);
+        hikariConfig.setMinimumIdle(5);
+        hikariConfig.setConnectionTimeout(30000);
+        hikariConfig.setIdleTimeout(300000);
+        hikariConfig.setMaxLifetime(1800000);
+
+        HikariDataSource hikariDataSource = new HikariDataSource(hikariConfig);
+
+
+        return new LazyConnectionDataSourceProxy(new HikariDataSource(hikariConfig));
     }
     @Bean
-    @Lazy
     @ConfigurationProperties(prefix = "spring.datasource.db2")
-    public DataSource dataSource2() {
-        DriverManagerDataSource dataSource = new DriverManagerDataSource();
-        dataSource.setUrl("jdbc:h2:tcp:localhost/~/testdb2");
-        dataSource.setUsername("sa");
-        dataSource.setDriverClassName("org.h2.Driver");
-        return new LazyConnectionDataSourceProxy(dataSource);
+    public DataSource dataSource2() throws SQLException {
+        HikariConfig hikariConfig = new HikariConfig();
+        hikariConfig.setDriverClassName("org.postgresql.Driver");
+        hikariConfig.setJdbcUrl("jdbc:postgresql://192.168.0.2:5432/postgres?currentSchema=inm2");
+        hikariConfig.setUsername("postgres");
+        hikariConfig.setPassword("1234");
+
+        hikariConfig.setMaximumPoolSize(10);
+        hikariConfig.setMinimumIdle(5);
+        hikariConfig.setConnectionTimeout(30000);
+        hikariConfig.setIdleTimeout(300000);
+        hikariConfig.setMaxLifetime(1800000);
+
+        return new LazyConnectionDataSourceProxy(new HikariDataSource(hikariConfig));
     }
     @Bean
-    @Lazy
     @ConfigurationProperties(prefix = "spring.datasource.db3")
-    public DataSource dataSource3() {
-        DriverManagerDataSource dataSource = new DriverManagerDataSource();
-        dataSource.setUrl("jdbc:h2:tcp:localhost/~/testdb3");
-        dataSource.setUsername("sa");
-        dataSource.setDriverClassName("org.h2.Driver");
-        return new LazyConnectionDataSourceProxy(dataSource);
+    public DataSource dataSource3() throws SQLException {
+        HikariConfig hikariConfig = new HikariConfig();
+        hikariConfig.setDriverClassName("org.postgresql.Driver");
+        hikariConfig.setJdbcUrl("jdbc:postgresql://192.168.0.2:5432/postgres?currentSchema=inm3");
+        hikariConfig.setUsername("postgres");
+        hikariConfig.setPassword("1234");
+
+        hikariConfig.setMaximumPoolSize(10);
+        hikariConfig.setMinimumIdle(5);
+        hikariConfig.setConnectionTimeout(30000);
+        hikariConfig.setIdleTimeout(300000);
+        hikariConfig.setMaxLifetime(1800000);
+
+        return new LazyConnectionDataSourceProxy(new HikariDataSource(hikariConfig));
     }
     @Bean
-    @Lazy
     @ConfigurationProperties(prefix = "spring.datasource.db4")
-    public DataSource dataSource4() {
-        DriverManagerDataSource dataSource = new DriverManagerDataSource();
-        dataSource.setUrl("jdbc:h2:tcp:localhost/~/testdb4");
-        dataSource.setUsername("sa");
-        dataSource.setDriverClassName("org.h2.Driver");
-        return new LazyConnectionDataSourceProxy(dataSource);
+    public DataSource dataSource4() throws SQLException {
+        HikariConfig hikariConfig = new HikariConfig();
+        hikariConfig.setDriverClassName("org.postgresql.Driver");
+        hikariConfig.setJdbcUrl("jdbc:postgresql://192.168.0.2:5432/postgres?currentSchema=inm4");
+        hikariConfig.setUsername("postgres");
+        hikariConfig.setPassword("1234");
+
+        hikariConfig.setMaximumPoolSize(10);
+        hikariConfig.setMinimumIdle(5);
+        hikariConfig.setConnectionTimeout(30000);
+        hikariConfig.setIdleTimeout(300000);
+        hikariConfig.setMaxLifetime(1800000);
+
+        return new LazyConnectionDataSourceProxy(new HikariDataSource(hikariConfig));
     }
 
     @Primary
@@ -87,20 +121,26 @@ public class DataSourceConfig {
     public PlatformTransactionManager transactionManager1(@Qualifier("dataSource1") DataSource dataSource1) {
         // https://devkuka.tistory.com/272
         DataSourceTransactionManager dataSourceTransactionManager = new DataSourceTransactionManager(dataSource1);
-        dataSourceTransactionManager.setGlobalRollbackOnParticipationFailure(false);
+//        dataSourceTransactionManager.setGlobalRollbackOnParticipationFailure(false);
         return dataSourceTransactionManager;
     }
     @Bean
     public PlatformTransactionManager transactionManager2(@Qualifier("dataSource2") DataSource dataSource2) {
-        return new DataSourceTransactionManager(dataSource2);
+        DataSourceTransactionManager dataSourceTransactionManager = new DataSourceTransactionManager(dataSource2);
+//        dataSourceTransactionManager.setGlobalRollbackOnParticipationFailure(false);
+        return dataSourceTransactionManager;
     }
     @Bean
     public PlatformTransactionManager transactionManager3(@Qualifier("dataSource3") DataSource dataSource3) {
-        return new DataSourceTransactionManager(dataSource3);
+        DataSourceTransactionManager dataSourceTransactionManager = new DataSourceTransactionManager(dataSource3);
+//        dataSourceTransactionManager.setGlobalRollbackOnParticipationFailure(false);
+        return dataSourceTransactionManager;
     }
     @Bean
     public PlatformTransactionManager transactionManager4(@Qualifier("dataSource4") DataSource dataSource4) {
-        return new DataSourceTransactionManager(dataSource4);
+        DataSourceTransactionManager dataSourceTransactionManager = new DataSourceTransactionManager(dataSource4);
+//        dataSourceTransactionManager.setGlobalRollbackOnParticipationFailure(false);
+        return dataSourceTransactionManager;
     }
 
     @Bean

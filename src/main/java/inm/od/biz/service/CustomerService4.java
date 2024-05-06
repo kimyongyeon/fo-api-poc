@@ -2,18 +2,30 @@ package inm.od.biz.service;
 
 import inm.od.biz.mapper.mapper4.CustomerMapper4;
 import inm.od.biz.mapper.vo.CustomerVo;
+import inm.od.biz.mapper.vo.ProductVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service
-@Transactional
 public class CustomerService4 {
     @Autowired
     private CustomerMapper4 customerMapper4;
 
-
+    @Transactional
+    public void insertProduct4(ProductVo vo) {
+        customerMapper4.insertProduct(vo);
+    }
+    public ProductVo selectProduct4(int id) {
+        return customerMapper4.selectProduct(id);
+    }
+    public void updateProduct4(int id) {
+        customerMapper4.updateProduct(id);
+    }
+    public void deleteProduct4(int id) {
+        customerMapper4.deleteProduct(id);
+    }
 
     ////////////////////////////////
     // 비정상 케이스

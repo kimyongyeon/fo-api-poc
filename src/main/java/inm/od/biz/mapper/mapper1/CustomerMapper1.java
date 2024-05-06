@@ -1,10 +1,16 @@
 package inm.od.biz.mapper.mapper1;
 
 import inm.od.biz.mapper.vo.CustomerVo;
+import inm.od.biz.mapper.vo.ProductVo;
 import org.apache.ibatis.annotations.Mapper;
 
 @Mapper
 public interface CustomerMapper1 {
+
+    void insertProduct(ProductVo vo);
+    ProductVo selectProduct(int id);
+    void updateProduct(int id);
+    void deleteProduct(int id);
 
 
 

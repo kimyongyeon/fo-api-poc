@@ -3,6 +3,7 @@ package inm.od.biz.service;
 import inm.od.biz.mapper.mapper3.CustomerMapper3;
 import inm.od.biz.mapper.mapper4.CustomerMapper4;
 import inm.od.biz.mapper.vo.CustomerVo;
+import inm.od.biz.mapper.vo.ProductVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
@@ -15,6 +16,20 @@ public class CustomerService3 {
     @Autowired
     private CustomerMapper3 customerMapper3;
 
+//    @Transactional(propagation = Propagation.REQUIRES_NEW)
+    public void insertProduct3(ProductVo vo) {
+        customerMapper3.insertProduct(vo);
+//        throw new RuntimeException("CustomerService3.insertProduct3");
+    }
+    public ProductVo selectProduct3(int id) {
+        return customerMapper3.selectProduct(id);
+    }
+    public void updateProduct3(int id) {
+        customerMapper3.updateProduct(id);
+    }
+    public void deleteProduct3(int id) {
+        customerMapper3.deleteProduct(id);
+    }
 
     ////////////////////////////////
     // 비정상 케이스

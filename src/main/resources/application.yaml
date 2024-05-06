@@ -7,40 +7,9 @@ masking:
 service.name: fo-order-api
 logging:
   level:
-    root: info
-    org:
-      springframework:
-        transaction: DEBUG
+    root: debug
 
 spring:
-#  sql:
-#    init:
-#      mode: always
-#      schema-locations: classpath:schema.sql
-#      data-locations: classpath:data.sql
-  datasource:
-    hikari:
-      auto-commit: false
-    db1:
-      username: sa
-      password:
-      driver-class-name: org.h2.Driver
-      jdbc-url: jdbc:h2:tcp:localhost/~/testdb1;
-    db2:
-      password:
-      username: sa
-      driver-class-name: org.h2.Driver
-      jdbc-url: jdbc:h2:tcp:localhost/~/testdb2;
-    db3:
-      password:
-      username: sa
-      driver-class-name: org.h2.Driver
-      jdbc-url: jdbc:h2:tcp:localhost/~/testdb3;
-    db4:
-      username: sa
-      password:
-      driver-class-name: org.h2.Driver
-      jdbc-url: jdbc:h2:tcp:localhost/~/testdb4;
   cloud:
     openfeign:
       client:

@@ -1,5 +1,6 @@
 package inm.od.biz.service;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -21,19 +22,25 @@ class TranChildExceptionServiceTest {
     @Autowired
     private CustomerService4 customerService4;
 
-
+    @BeforeEach
+    void setUp() {
+        customerService1.deleteProduct1(1);
+        customerService2.deleteProduct2(1);
+        customerService3.deleteProduct3(1);
+        customerService4.deleteProduct4(1);
+    }
     @Test
-//    @Transactional
     void insertErrorCustomer2() {
         try {
             tranChildExceptionService.insertErrorCustomer();
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            System.out.println("CustomerService1.selectErrorCustomer1(1) = " + customerService1.selectErrorCustomer1(1));
-            System.out.println("CustomerService2.selectErrorCustomer2(1) = " + customerService2.selectErrorCustomer2(1));
-            System.out.println("CustomerService3.selectErrorCustomer3(1) = " + customerService3.selectErrorCustomer3(1));
-            System.out.println("CustomerService4.selectErrorCustomer4(1) = " + customerService4.selectErrorCustomer4(1));
+            System.out.println("db1 :: " + customerService1.selectProduct1(1));
+            System.out.println("db2 :: " + customerService2.selectProduct2(1));
+            System.out.println("db3 :: " + customerService3.selectProduct3(1));
+            System.out.println("db4 :: " + customerService4.selectProduct4(1));
+
         }
 
     }

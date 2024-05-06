@@ -1,25 +1,39 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="inm.od.biz.mapper.mapper1.CustomerMapper1">
+    <insert id="insertProduct" parameterType="ProductVo">
+        INSERT INTO inm1.tb_product (id, name, stock)
+        VALUES (#{id}, #{name}, #{stock})
+    </insert>
+    <select id="selectProduct" parameterType="int" resultType="ProductVo">
+        SELECT id, name, stock
+        FROM inm1.tb_product
+        WHERE id = #{id}
+    </select>
+    <delete id="updateProduct" parameterType="int">
+        UPDATE inm1.tb_product
+        SET name = 'New Product Name', stock = 200
+        WHERE id = #{id};
+    </delete>
+    <delete id="deleteProduct" parameterType="int">
+        DELETE FROM inm1.tb_product
+        WHERE id = #{id}
+    </delete>
 
 
     <insert id="insertErrorCustomer" parameterType="CustomerVo">
         INSERT INTO users_error (id, name, email)
         VALUES (#{id}, #{name}, #{email})
     </insert>
-
-
     <select id="selectErrorCustomer" parameterType="int" resultType="CustomerVo">
         SELECT id, name, email
         FROM users_error
         WHERE id = #{id}
     </select>
-
     <delete id="deleteErrorCustomer" parameterType="int">
         DELETE FROM users_error
         WHERE id = #{id}
     </delete>
-
     <delete id="deleteErrorCustomerAll">
         DELETE FROM users_error
         WHERE 1 = 1
