@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script th:src="@{/js/api.js}"></script>
+</head>
+<body>
+<button onclick="fetchData()">Fetch Data</button>
+<div id="result"></div>
+
+<script>
+    function fetchData() {
+        api.get('/data')
+            .then(response => {
+                const result = response.data;
+                document.getElementById('result').innerText = JSON.stringify(result);
+            })
+            .catch(error => {
+                console.error(error);
+            });
+    }
+</script>
+</body>
+</html>

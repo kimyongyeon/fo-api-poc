@@ -5,7 +5,7 @@ import inm.od.biz.mapper.vo.CustomerVo;
 import inm.od.biz.mapper.vo.ProductVo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service
@@ -14,7 +14,7 @@ public class CustomerService1 {
 
     private final CustomerMapper1 customerMapper1;
 
-    @Transactional
+    @Transactional(isolation = Isolation.READ_COMMITTED, timeout = 10)
     public void insertProduct1(ProductVo vo) {
         customerMapper1.insertProduct(vo);
     }
