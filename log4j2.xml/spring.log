@@ -1,7 +1,7 @@
-2024-04-13T16:45:30.496+09:00  INFO 62223 --- [main] inm.od.FoOrderApiApplication         : Starting FoOrderApiApplication using Java 17.0.10 with PID 62223 (/Users/yongyeonkim/dev/fo-order-api/build/classes/java/main started by yongyeonkim in /Users/yongyeonkim/dev/fo-order-api)
-2024-04-13T16:45:30.497+09:00 DEBUG 62223 --- [main] inm.od.FoOrderApiApplication         : Running with Spring Boot v3.2.4, Spring v6.1.5
-2024-04-13T16:45:30.497+09:00  INFO 62223 --- [main] inm.od.FoOrderApiApplication         : No active profile set, falling back to 1 default profile: "default"
-2024-04-13T16:45:30.498+09:00 DEBUG 62223 --- [main] o.s.boot.SpringApplication               : Loading source class inm.od.FoOrderApiApplication
+2024-04-13T16:45:30.496+09:00  INFO 62223 --- [main] inm.or.FoOrderApiApplication         : Starting FoOrderApiApplication using Java 17.0.10 with PID 62223 (/Users/yongyeonkim/dev/fo-order-api/build/classes/java/main started by yongyeonkim in /Users/yongyeonkim/dev/fo-order-api)
+2024-04-13T16:45:30.497+09:00 DEBUG 62223 --- [main] inm.or.FoOrderApiApplication         : Running with Spring Boot v3.2.4, Spring v6.1.5
+2024-04-13T16:45:30.497+09:00  INFO 62223 --- [main] inm.or.FoOrderApiApplication         : No active profile set, falling back to 1 default profile: "default"
+2024-04-13T16:45:30.498+09:00 DEBUG 62223 --- [main] o.s.boot.SpringApplication               : Loading source class inm.or.FoOrderApiApplication
 2024-04-13T16:45:30.513+09:00 DEBUG 62223 --- [main] ConfigServletWebServerApplicationContext : Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@5066d65f
 2024-04-13T16:45:30.521+09:00 DEBUG 62223 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'org.springframework.context.annotation.internalConfigurationAnnotationProcessor'
 2024-04-13T16:45:30.527+09:00 DEBUG 62223 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'org.springframework.boot.autoconfigure.internalCachingMetadataReaderFactory'
@@ -10,8 +10,8 @@
 2024-04-13T16:45:30.768+09:00  INFO 62223 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
 2024-04-13T16:45:30.770+09:00  INFO 62223 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
 2024-04-13T16:45:30.777+09:00 DEBUG 62223 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'org.springframework.boot.autoconfigure.AutoConfigurationPackages'
-2024-04-13T16:45:30.781+09:00 DEBUG 62223 --- [main] o.s.b.a.AutoConfigurationPackages        : @EnableAutoConfiguration was declared on a class in the package 'inm.od.biz'. Automatic @Repository and @Entity scanning is enabled.
-2024-04-13T16:45:30.782+09:00 DEBUG 62223 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Scanning for Redis repositories in packages inm.od.biz.
+2024-04-13T16:45:30.781+09:00 DEBUG 62223 --- [main] o.s.b.a.AutoConfigurationPackages        : @EnableAutoConfiguration was declared on a class in the package 'inm.or.biz'. Automatic @Repository and @Entity scanning is enabled.
+2024-04-13T16:45:30.782+09:00 DEBUG 62223 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Scanning for Redis repositories in packages inm.or.biz.
 2024-04-13T16:45:30.786+09:00  INFO 62223 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 3 ms. Found 0 Redis repository interfaces.
 2024-04-13T16:45:30.829+09:00 DEBUG 62223 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'refreshScope'
 2024-04-13T16:45:30.830+09:00 DEBUG 62223 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'org.springframework.cloud.autoconfigure.RefreshAutoConfiguration$RefreshScopeBeanDefinitionEnhancer'
@@ -71,7 +71,7 @@ org.apache.tomcat.jni.LibraryNotFoundError: Can't load library: /Users/yongyeonk
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:334) ~[spring-boot-3.2.4.jar:3.2.4]
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354) ~[spring-boot-3.2.4.jar:3.2.4]
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1343) ~[spring-boot-3.2.4.jar:3.2.4]
-	at inm.od.FoOrderApiApplication.main(FoOrderApiApplication.java:10) ~[main/:na]
+	at inm.or.FoOrderApiApplication.main(FoOrderApiApplication.java:10) ~[main/:na]
 
 2024-04-13T16:45:30.922+09:00 DEBUG 62223 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'websocketServletWebServerCustomizer'
 2024-04-13T16:45:30.922+09:00 DEBUG 62223 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'org.springframework.boot.autoconfigure.websocket.servlet.WebSocketServletAutoConfiguration$TomcatWebSocketConfiguration'
@@ -138,7 +138,7 @@ java.lang.ClassNotFoundException: java.lang.WrongThreadException
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:334) ~[spring-boot-3.2.4.jar:3.2.4]
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354) ~[spring-boot-3.2.4.jar:3.2.4]
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1343) ~[spring-boot-3.2.4.jar:3.2.4]
-	at inm.od.FoOrderApiApplication.main(FoOrderApiApplication.java:10) ~[main/:na]
+	at inm.or.FoOrderApiApplication.main(FoOrderApiApplication.java:10) ~[main/:na]
 
 2024-04-13T16:45:30.967+09:00 DEBUG 62223 --- [main] o.apache.tomcat.util.compat.Jre21Compat  : Class not found so assuming code is running on a pre-Java 21 JVM
 
@@ -161,7 +161,7 @@ java.lang.ClassNotFoundException: java.lang.Thread$Builder
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:334) ~[spring-boot-3.2.4.jar:3.2.4]
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354) ~[spring-boot-3.2.4.jar:3.2.4]
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1343) ~[spring-boot-3.2.4.jar:3.2.4]
-	at inm.od.FoOrderApiApplication.main(FoOrderApiApplication.java:10) ~[main/:na]
+	at inm.or.FoOrderApiApplication.main(FoOrderApiApplication.java:10) ~[main/:na]
 
 2024-04-13T16:45:30.967+09:00 DEBUG 62223 --- [main] o.apache.tomcat.util.compat.Jre22Compat  : Class not found so assuming code is running on a pre-Java 22 JVM
 
@@ -184,7 +184,7 @@ java.lang.ClassNotFoundException: java.lang.foreign.MemorySegment
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:334) ~[spring-boot-3.2.4.jar:3.2.4]
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354) ~[spring-boot-3.2.4.jar:3.2.4]
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1343) ~[spring-boot-3.2.4.jar:3.2.4]
-	at inm.od.FoOrderApiApplication.main(FoOrderApiApplication.java:10) ~[main/:na]
+	at inm.or.FoOrderApiApplication.main(FoOrderApiApplication.java:10) ~[main/:na]
 
 2024-04-13T16:45:30.993+09:00 DEBUG 62223 --- [main] org.apache.catalina.core.ContainerBase   : Add container child [StandardHost[localhost]] to container [StandardEngine[Tomcat]]
 2024-04-13T16:45:30.993+09:00 DEBUG 62223 --- [main] .s.b.w.e.t.TomcatServletWebServerFactory : Code archive: /Users/yongyeonkim/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot/3.2.4/ccb7cbb30dcf1d91dbbf20a3219a457eead46601/spring-boot-3.2.4.jar
@@ -2216,7 +2216,7 @@ Unconditional classes:
 
 
 
-2024-04-13T16:45:31.510+09:00  INFO 62223 --- [main] inm.od.FoOrderApiApplication         : Started FoOrderApiApplication in 1.217 seconds (process running for 1.463)
+2024-04-13T16:45:31.510+09:00  INFO 62223 --- [main] inm.or.FoOrderApiApplication         : Started FoOrderApiApplication in 1.217 seconds (process running for 1.463)
 2024-04-13T16:45:31.510+09:00 DEBUG 62223 --- [main] o.s.b.a.ApplicationAvailabilityBean      : Application availability state LivenessState changed to CORRECT
 2024-04-13T16:45:31.511+09:00 DEBUG 62223 --- [main] o.s.b.a.ApplicationAvailabilityBean      : Application availability state ReadinessState changed to ACCEPTING_TRAFFIC
 2024-04-13T16:46:13.401+09:00 DEBUG 62223 --- [SpringApplicationShutdownHook] o.s.b.a.ApplicationAvailabilityBean      : Application availability state ReadinessState changed from ACCEPTING_TRAFFIC to REFUSING_TRAFFIC

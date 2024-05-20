@@ -7,6 +7,6 @@
         <setting name="mapUnderscoreToCamelCase" value="true" />
     </settings>
     <typeAliases>
-        <package name="inm.od.biz.vo" />
+        <package name="inm.or.biz.vo" />
     </typeAliases>
 </configuration>

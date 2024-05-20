@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="inm.od.biz.mapper.mapper4.CustomerMapper4">
+<mapper namespace="inm.or.biz.mapper.mapper4.CustomerMapper4">
     <insert id="insertProduct" parameterType="ProductVo">
         INSERT INTO inm4.tb_product (id, name, stock)
         VALUES (#{id}, #{name}, #{stock})
