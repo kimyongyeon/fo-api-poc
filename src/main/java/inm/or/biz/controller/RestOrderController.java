@@ -6,11 +6,8 @@ import inm.or.biz.service.OrderInnerService;
 import inm.or.biz.service.OrderService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
-import org.springframework.context.MessageSource;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
-import tony.ai.common.exception.BusinessException;
-import tony.ai.common.util.MessageUtil;
 
 @RestController
 @RequiredArgsConstructor
@@ -21,14 +18,6 @@ public class RestOrderController {
     private final OrderInnerService orderInnerService;
     private final OrderApi orderApi;
 
-    @GetMapping("tran")
-    public void tran() {
-        String greeting = MessageUtil.getMessage("greeting");
-
-        new BusinessException("greeting");
-        new BusinessException("greeting", "fuck you");
-        log.info(greeting);
-    }
 
     @GetMapping("/getOrder")
     public OrderResDto getOrder() {
