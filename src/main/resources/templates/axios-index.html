@@ -9,6 +9,9 @@
 <div id="result"></div>
 
 <script>
+
+    const result = api.get('/data');
+
     function fetchData() {
         api.get('/data')
             .then(response => {

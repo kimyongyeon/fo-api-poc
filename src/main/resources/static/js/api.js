@@ -70,3 +70,38 @@ api.interceptors.response.use(
         return Promise.reject(error);
     }
 );
+
+// GET 메서드
+api.get = async function (endpoint, config = {}) {
+    try {
+        const response = await api.request({
+            method: 'get',
+            url: endpoint,
+            ...config
+        });
+        return response.data;
+    } catch (error) {
+        // 에러 처리
+        console.error('GET Error:', error);
+        throw error;
+    }
+};
+
+// POST 메서드
+api.post = async function (endpoint, data, config = {}) {
+    try {
+        const response = await api.request({
+            method: 'post',
+            url: endpoint,
+            data: data,
+            ...config
+        });
+        return response.data;
+    } catch (error) {
+        // 에러 처리
+        console.error('POST Error:', error);
+        throw error;
+    }
+};
+
+export default api;
