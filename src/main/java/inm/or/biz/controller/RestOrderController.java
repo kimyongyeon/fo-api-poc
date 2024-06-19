@@ -2,6 +2,7 @@ package inm.or.biz.controller;
 
 import inm.or.biz.api.OrderApi;
 import inm.or.biz.dto.OrderResDto;
+import inm.or.biz.service.CaffeinCacheService;
 import inm.or.biz.service.OrderInnerService;
 import inm.or.biz.service.OrderService;
 import inm.or.common.feign.ApiServiceClient;
@@ -9,7 +10,11 @@ import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.concurrent.TimeUnit;
 
 @RestController
 @RequiredArgsConstructor
@@ -19,6 +24,20 @@ public class RestOrderController {
     private final OrderService orderService;
     private final OrderInnerService orderInnerService;
     private final OrderApi orderApi;
+
+    private final CaffeinCacheService cacheService;
+
+    @GetMapping("/data/{id}")
+    public Object getData(@PathVariable String id) {
+        return cacheService.getData(id);
+    }
+
+    @GetMapping("/data/{id}/{ttl}")
+    public Object putDataWithTTL(@PathVariable String id, @PathVariable long ttl, @RequestParam(required = false) String param) {
+        Object data = "hello world :: " + param;
+        cacheService.putDataWithCustomTTL(id, data, ttl, TimeUnit.SECONDS);
+        return data;
+    }
 
     private final ApiServiceClient apiServiceClient;
 
